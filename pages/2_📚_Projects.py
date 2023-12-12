@@ -15,11 +15,11 @@ def rgb_to_hex(rgb):
     hex_color = "#{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2])
     return hex_color
 # Başlık
-st.title("Rastgele Renk Üreteci")
+st.title("Generate Random Color")
 
 
 # Kullanıcıdan renk sayısı girişi
-num_of_colors = st.number_input("Kaç adet rastgele renk üretmek istersiniz?", min_value=1, value=5, step=1)
+num_of_colors = st.number_input("How much generate random color?", min_value=1, value=5, step=1)
 
 # Rastgele renkleri çizen fonksiyon
 random_colors = generate_random_colors(num_of_colors)
@@ -30,6 +30,4 @@ for i, color in enumerate(random_colors, start=1):
     st.code(f"RGB{color}") 
     st.markdown(f"<div style='margin-left:50%;'> <div style='text-align:center;width: 75px; height: 45px;margin:8px;background-color: rgb({color[0]}, {color[1]}, {color[2]})'></div></div>",unsafe_allow_html=True)
     color = st.color_picker(f'Pick A Color',rgb_to_hex(color))
-    st.write('The current color is', color)
-    st.divider()
     st.divider()
